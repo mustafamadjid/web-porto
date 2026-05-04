@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 420" role="img" aria-labelledby="title">
+  <title id="title">Black and white backend workspace illustration</title>
+  <rect width="560" height="420" fill="#fff"/>
+  <rect x="51" y="50" width="458" height="270" fill="#f4f4f5"/>
+  <rect x="80" y="82" width="190" height="180" fill="#111"/>
+  <rect x="294" y="82" width="186" height="180" fill="#111"/>
+  <path fill="#fff" d="M105 112h88v11h-88zm0 31h133v9H105zm0 23h104v9H105zm0 23h125v9H105zm0 23h71v9h-71z"/>
+  <path fill="#fff" d="M320 112h52v11h-52zm0 31h134v9H320zm0 23h94v9h-94zm0 23h122v9H320z"/>
+  <circle cx="280" cy="306" r="54" fill="#111"/>
+  <path fill="#fff" d="M253 293c7-22 46-22 54 0 4 14-3 33-17 40v26h-20v-26c-14-8-22-26-17-40Z"/>
+  <path fill="#111" d="M264 309h6v6h-6zm27 0h6v6h-6z"/>
+  <path fill="#111" d="M154 347h252v34H154z"/>
+  <path fill="#fff" d="M226 358h108v10H226z"/>
+  <path fill="none" stroke="#111" stroke-width="8" stroke-linecap="round" d="M51 320h458M93 354H51m458 0h-42"/>
+</svg>

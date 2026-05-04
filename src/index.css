@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Sora", system-ui, sans-serif;
+    background: #ffffff;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .footer-social a {
+    border-color: #ffffff;
+    background: #171717;
+    color: #ffffff;
+  }
+
+  .footer-social a:hover {
+    background: #ffffff;
+    color: #171717;
+  }
+}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 520" role="img" aria-labelledby="title">
+  <title id="title">Black and white developer illustration</title>
+  <rect width="620" height="520" fill="#fff"/>
+  <path fill="#f4f4f5" d="M76 408h468v34H76zM103 85h414v276H103z"/>
+  <path fill="#111" d="M121 104h378v238H121z"/>
+  <path fill="#fff" d="M145 129h139v12H145zm0 35h250v10H145zm0 25h204v10H145zm0 25h279v10H145z"/>
+  <path fill="#d4d4d4" d="M333 129h132v82H333z"/>
+  <path fill="#fff" d="M355 151h87v9h-87zm0 21h64v9h-64z"/>
+  <circle cx="306" cy="262" r="64" fill="#fff"/>
+  <path fill="#111" d="M279 229c8-23 51-22 59 1 5 15-2 36-17 45v30h-32v-30c-15-9-20-31-10-46Z"/>
+  <path fill="#fff" d="M291 249h7v7h-7zm31 0h7v7h-7z"/>
+  <path fill="#111" d="M214 383c10-46 44-76 92-76 49 0 82 30 93 76H214Z"/>
+  <path fill="#fff" d="M283 317h46l-23 44-23-44Z"/>
+  <path fill="#111" d="M172 363h268v78H172z"/>
+  <path fill="#fff" d="M283 394h46v12h-46z"/>
+  <path fill="none" stroke="#111" stroke-width="10" stroke-linecap="round" d="M137 443h337M499 104v238M121 104v238"/>
+  <path fill="#111" d="M498 381h39v61h-39z"/>
+  <path fill="#fff" d="M508 392h19v39h-19z"/>
+</svg>
