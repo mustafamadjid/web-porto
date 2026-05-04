@@ -9,8 +9,9 @@ export const personalInfo = {
   email: "madjidmustafa@gmail.com",
   phone: "+62 821 7567 3461",
   resumeUrl: "/CV_Mustafa_English.pdf",
-  githubUrl: "https://github.com/",
-  linkedinUrl: "https://www.linkedin.com/",
+  githubUrl: "https://github.com/mustafamadjid",
+  linkedinUrl:
+    "https://www.linkedin.com/in/athaullah-mustafa-madjid-60a330245/",
   summary:
     "Final-year Informatics Engineering student with experience as a Backend Developer Intern, project team lead, as well as practicum and lecturer assistant. Strong interest in backend and full-stack development using Golang, JavaScript, Express.js, React.js, PostgreSQL, and MySQL.",
   about:
