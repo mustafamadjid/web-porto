@@ -7,10 +7,14 @@ const Footer = () => {
       <div className="mx-auto flex max-w-7xl flex-col gap-8 md:flex-row md:items-center md:justify-between">
         <div>
           <a href="#home" className="flex items-center gap-3 font-extrabold">
-            <span className="grid size-10 place-items-center bg-white text-neutral-950">M</span>
+            <span className="grid size-10 place-items-center bg-white text-neutral-950">
+              M
+            </span>
             <span>{personalInfo.shortName}</span>
           </a>
-          <p className="mt-4 text-sm text-neutral-400">Copyright 2026 Athaullah Mustafa Madjid. All rights reserved.</p>
+          <p className="mt-4 text-sm text-neutral-400">
+            Copyright 2026 Athaullah Mustafa Madjid. All rights reserved.
+          </p>
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-neutral-300">
           {navItems.map((item) => (

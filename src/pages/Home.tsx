@@ -10,7 +10,7 @@ import SkillsSection from "../components/sections/SkillsSection";
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-white text-neutral-950">
+    <div className="parallax-page min-h-screen text-neutral-950">
       <Navbar />
       <main>
         <HeroSection />

@@ -11,6 +11,7 @@
     margin: 0;
     font-family: "Sora", system-ui, sans-serif;
     background: #ffffff;
+    overflow-x: hidden;
   }
 
   * {
@@ -19,6 +20,45 @@
 }
 
 @layer components {
+  .parallax-page {
+    background:
+      linear-gradient(90deg, rgba(23, 23, 23, 0.04) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(23, 23, 23, 0.04) 1px, transparent 1px),
+      #ffffff;
+    background-size: 72px 72px;
+  }
+
+  .parallax-float {
+    transform: translate3d(0, var(--parallax-y, 0px), 0);
+    will-change: transform;
+  }
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translate3d(0, 34px, 0);
+    transition:
+      opacity 700ms ease,
+      transform 700ms ease;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .section-parallax-grid::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image:
+      linear-gradient(rgba(23, 23, 23, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(23, 23, 23, 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+  }
+
   .footer-social a {
     border-color: #ffffff;
     background: #171717;
@@ -28,5 +68,21 @@
   .footer-social a:hover {
     background: #ffffff;
     color: #171717;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .parallax-float,
+  .scroll-reveal {
+    transform: none;
+    transition: none;
+  }
+
+  .scroll-reveal {
+    opacity: 1;
   }
 }
