@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="bg-neutral-950 px-5 py-10 text-white sm:px-8">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 md:flex-row md:items-center md:justify-between">
         <div>
-          <a href="#home" className="flex items-center gap-3 font-extrabold">
+          <a href="/#home" className="flex items-center gap-3 font-extrabold">
             <span className="grid size-10 place-items-center bg-white text-neutral-950">
               M
             </span>

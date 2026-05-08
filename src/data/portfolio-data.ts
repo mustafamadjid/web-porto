@@ -1,3 +1,11 @@
+import ecoImageOne from "../assets/images/project/ecobanjar/eco-1.png";
+import ecoImageTwo from "../assets/images/project/ecobanjar/eco-2.png";
+import ecoImageThree from "../assets/images/project/ecobanjar/eco-3.png";
+import examImageOne from "../assets/images/project/exam/exam-1.png";
+import examImageTwo from "../assets/images/project/exam/exam-2.png";
+import examImageThree from "../assets/images/project/exam/exam-3.png";
+import ppidImageOne from "../assets/images/project/ppid/ppid-1.png";
+import ppidImageTwo from "../assets/images/project/ppid/ppid-2.png";
 import cssIcon from "../assets/icons/css.svg";
 
 export const personalInfo = {
@@ -19,11 +27,11 @@ export const personalInfo = {
 };
 
 export const navItems = [
-  { label: "About Me", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "About Me", href: "/#about" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const skills = [
@@ -101,27 +109,176 @@ export const experiences = [
   },
 ];
 
-export const projects = [
+export type Project = {
+  slug: string;
+  name: string;
+  period: string;
+  year: string;
+  role: string;
+  type: string;
+  status: string;
+  description: string;
+  overview: string[];
+  stack: string[];
+  images: {
+    src: string;
+    alt: string;
+    caption: string;
+  }[];
+  responsibilities: string[];
+  features: string[];
+  results: string[];
+  links?: {
+    label: string;
+    href: string;
+  }[];
+};
+
+export const projects: Project[] = [
   {
+    slug: "itera-ppid-system",
     name: "ITERA PPID System",
     period: "Jul 2025 - Aug 2025",
+    year: "2025",
+    role: "Backend Developer Intern",
+    type: "Institutional Information System",
+    status: "Internship project",
     description:
       "Institutional public information management system built to support request handling and administrative publication workflows.",
     stack: ["Laravel", "MySQL"],
+    images: [
+      {
+        src: ppidImageOne,
+        alt: "ITERA PPID system preview",
+        caption: "Main system preview",
+      },
+      {
+        src: ppidImageTwo,
+        alt: "Public information workflow preview",
+        caption: "Administrative workflow",
+      },
+    ],
+    overview: [
+      "This project focused on supporting the public relations office in managing public information services through a structured web-based system.",
+      "The backend was designed to handle administrative data flows, public information request records, and content publication needs in a maintainable way.",
+    ],
+    responsibilities: [
+      "Developed backend features using Laravel and MySQL.",
+      "Structured database tables and relationships for public information workflows.",
+      "Implemented data handling for request and administrative content modules.",
+      "Collaborated with office stakeholders to align features with daily operational needs.",
+    ],
+    features: [
+      "Public information request data management.",
+      "Administrative publication workflow support.",
+      "Relational database structure for institutional records.",
+      "Backend endpoints prepared for dashboard-driven operations.",
+    ],
+    results: [
+      "Improved clarity of public information data handling.",
+      "Created a stronger backend foundation for institutional service workflows.",
+      "Gained practical experience working with real stakeholder requirements.",
+    ],
   },
   {
+    slug: "web-based-examination-system",
     name: "Web-Based Examination System",
     period: "Mar 2026",
+    year: "2026",
+    role: "Full-Stack Developer",
+    type: "Academic Final Project",
+    status: "Completed",
     description:
       "Final project application for managing web-based examinations with a Golang backend, React interface, and PostgreSQL database.",
     stack: ["Golang", "React.js", "PostgreSQL"],
+    images: [
+      {
+        src: examImageOne,
+        alt: "Web-based examination system preview",
+        caption: "Examination dashboard preview",
+      },
+      {
+        src: examImageTwo,
+        alt: "Exam management interface preview",
+        caption: "Exam management flow",
+      },
+      {
+        src: examImageThree,
+        alt: "Student exam interface preview",
+        caption: "Student-side experience",
+      },
+    ],
+    overview: [
+      "This application was built as a web-based examination platform that helps manage exam sessions, questions, participants, and results.",
+      "The system combines a Golang backend, React frontend, and PostgreSQL database to keep the application structured across API, interface, and data layers.",
+    ],
+    responsibilities: [
+      "Designed and implemented backend API flows using Golang.",
+      "Built React interface sections for exam management and user interaction.",
+      "Modeled PostgreSQL data for exams, participants, and related records.",
+      "Connected frontend pages with backend services through RESTful API integration.",
+    ],
+    features: [
+      "Exam session management.",
+      "Question and participant data handling.",
+      "Role-aware workflows for exam administration.",
+      "PostgreSQL-backed persistence for structured academic data.",
+    ],
+    results: [
+      "Delivered a complete final project application with separated frontend and backend layers.",
+      "Strengthened experience in full-stack architecture and API integration.",
+      "Created a project that can be extended with authentication, scoring, and reporting modules.",
+    ],
   },
   {
+    slug: "green-education-information-system",
     name: "Green Education Information System",
     period: "Sep 2024 - Dec 2024",
+    year: "2024",
+    role: "Backend Developer / Team Contributor",
+    type: "Information System",
+    status: "Completed",
     description:
       "Information system supporting green education content and operational data using Express.js and MySQL.",
     stack: ["Express.js", "MySQL"],
+    images: [
+      {
+        src: ecoImageOne,
+        alt: "Green education information system preview",
+        caption: "Information system preview",
+      },
+      {
+        src: ecoImageTwo,
+        alt: "Green education content management preview",
+        caption: "Content management context",
+      },
+      {
+        src: ecoImageThree,
+        alt: "Green education data workflow preview",
+        caption: "Operational data flow",
+      },
+    ],
+    overview: [
+      "This system supported green education content and operational information through a web application backed by Express.js and MySQL.",
+      "The project emphasized clean data organization, practical backend routes, and a structure that could be understood and maintained by the team.",
+    ],
+    responsibilities: [
+      "Built backend routes and data handling using Express.js.",
+      "Designed MySQL table structures for application data.",
+      "Helped connect backend logic with the system's information management needs.",
+      "Worked with the project team to keep implementation aligned with planned scope.",
+    ],
+    features: [
+      "Green education content data management.",
+      "Express.js API routes for core system operations.",
+      "MySQL-backed information storage.",
+      "Team-friendly project structure for continued development.",
+    ],
+    results: [
+      "Completed an information system project using JavaScript backend tooling.",
+      "Improved practical understanding of Express.js and relational databases.",
+      "Built a project foundation suitable for additional content and admin features.",
+    ],
   },
 ];
 

@@ -51,3 +51,22 @@ export const MapPinIcon = (props: IconProps) => (
     <path d="M12 12.75a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" strokeWidth="1.8" />
   </svg>
 );
+
+export const ArrowLeftIcon = (props: IconProps) => (
+  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" {...props}>
+    <path d="M19 12H5m0 0 6-6m-6 6 6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+export const ArrowRightIcon = (props: IconProps) => (
+  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" {...props}>
+    <path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+export const ExternalLinkIcon = (props: IconProps) => (
+  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" {...props}>
+    <path d="M14 5h5v5M19 5l-8 8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M10.5 6.5H6.75A1.75 1.75 0 0 0 5 8.25v9A1.75 1.75 0 0 0 6.75 19h9A1.75 1.75 0 0 0 17.5 17.25V13.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+  </svg>
+);

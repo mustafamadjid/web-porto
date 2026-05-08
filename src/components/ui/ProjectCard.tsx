@@ -1,13 +1,22 @@
+import { Link } from "react-router";
+
+import { ArrowRightIcon } from "./Icons";
+
 type ProjectCardProps = {
+  slug: string;
   name: string;
   period: string;
   description: string;
   stack: string[];
 };
 
-const ProjectCard = ({ name, period, description, stack }: ProjectCardProps) => {
+const ProjectCard = ({ slug, name, period, description, stack }: ProjectCardProps) => {
   return (
-    <article className="group flex h-full flex-col border-2 border-neutral-950 bg-white p-6 transition duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[12px_12px_0_#111111]">
+    <Link
+      to={`/projects/${slug}`}
+      className="group flex h-full flex-col border-2 border-neutral-950 bg-white p-6 text-left transition duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[12px_12px_0_#111111] focus:outline-none focus-visible:ring-4 focus-visible:ring-neutral-950/20"
+      aria-label={`View ${name} project detail`}
+    >
       <p className="text-sm font-semibold text-neutral-500">{period}</p>
       <h3 className="mt-4 text-xl font-extrabold text-neutral-950">{name}</h3>
       <p className="mt-4 flex-1 text-sm leading-7 text-neutral-600">{description}</p>
@@ -21,7 +30,11 @@ const ProjectCard = ({ name, period, description, stack }: ProjectCardProps) => 
           </span>
         ))}
       </div>
-    </article>
+      <span className="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-neutral-950">
+        View detail
+        <ArrowRightIcon className="size-4 transition group-hover:translate-x-1" />
+      </span>
+    </Link>
   );
 };
 
