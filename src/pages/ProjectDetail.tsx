@@ -1,13 +1,15 @@
+import { useEffect, useState } from "react";
 import { Link, Navigate, useParams } from "react-router";
 
 import Footer from "../components/layout/Footer";
 import Navbar from "../components/layout/Navbar";
-import { ArrowLeftIcon, ExternalLinkIcon } from "../components/ui/Icons";
+import { ArrowLeftIcon, CloseIcon, ExternalLinkIcon } from "../components/ui/Icons";
 import { projects } from "../data/portfolio-data";
 
 const ProjectDetail = () => {
   const { slug } = useParams();
   const project = projects.find((item) => item.slug === slug);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
 
   if (!project) {
     return <Navigate to="/#projects" replace />;
@@ -20,6 +22,30 @@ const ProjectDetail = () => {
     { label: "Type", value: project.type },
     { label: "Status", value: project.status },
   ];
+  const selectedImage =
+    selectedImageIndex === null ? null : project.images[selectedImageIndex];
+  const selectedImageNumber =
+    selectedImageIndex === null ? null : selectedImageIndex + 1;
+
+  useEffect(() => {
+    if (!selectedImage) {
+      return;
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setSelectedImageIndex(null);
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedImage]);
 
   return (
     <div className="parallax-page min-h-screen text-neutral-950">
@@ -97,11 +123,25 @@ const ProjectDetail = () => {
               {project.images.map((image, index) => (
                 <figure
                   key={`${image.src}-${index}`}
-                  className="min-w-[82%] snap-start border-2 border-neutral-950 bg-white sm:min-w-[520px] lg:min-w-[620px]"
+                  className="min-w-[90%] snap-start border-2 border-neutral-950 bg-white shadow-[8px_8px_0_#111111] sm:min-w-[680px] lg:min-w-[860px] xl:min-w-[960px]"
                 >
-                  <div className="aspect-[16/10] overflow-hidden bg-neutral-100">
-                    <img src={image.src} alt={image.alt} className="h-full w-full object-cover" />
-                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedImageIndex(index)}
+                    className="group block w-full cursor-zoom-in bg-neutral-100 text-left"
+                    aria-label={`Open larger preview for ${image.caption}`}
+                  >
+                    <span className="relative block aspect-[16/9] overflow-hidden">
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+                      />
+                      <span className="absolute bottom-4 right-4 bg-neutral-950 px-4 py-2 text-xs font-extrabold uppercase tracking-wide text-white opacity-0 transition group-hover:opacity-100">
+                        Click to view
+                      </span>
+                    </span>
+                  </button>
                   <figcaption className="border-t-2 border-neutral-950 px-5 py-4 text-sm font-bold text-neutral-700">
                     {String(index + 1).padStart(2, "0")} / {project.images.length} - {image.caption}
                   </figcaption>
@@ -131,6 +171,45 @@ const ProjectDetail = () => {
         </section>
       </main>
       <Footer />
+
+      {selectedImage ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-neutral-950/85 px-4 py-6 backdrop-blur-sm sm:px-8"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${selectedImage.caption} image preview`}
+          onClick={() => setSelectedImageIndex(null)}
+        >
+          <div
+            className="relative w-full max-w-6xl border-2 border-white bg-white shadow-[10px_10px_0_rgba(255,255,255,0.35)]"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setSelectedImageIndex(null)}
+              className="absolute right-3 top-3 z-10 inline-flex size-11 items-center justify-center border-2 border-neutral-950 bg-white text-neutral-950 transition hover:bg-neutral-950 hover:text-white"
+              aria-label="Close image preview"
+            >
+              <CloseIcon className="size-5" />
+            </button>
+            <div className="max-h-[78vh] overflow-auto bg-neutral-100">
+              <img
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                className="h-auto w-full object-contain"
+              />
+            </div>
+            <div className="border-t-2 border-neutral-950 bg-white px-5 py-4 pr-16">
+              <p className="text-sm font-black text-neutral-950">
+                {String(selectedImageNumber).padStart(2, "0")} / {project.images.length}
+              </p>
+              <p className="mt-1 text-sm font-bold text-neutral-600">
+                {selectedImage.caption}
+              </p>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 };
