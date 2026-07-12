@@ -62,6 +62,14 @@ export const capabilities = [
 
 export const experiences = [
   {
+    position: "Fullstack Engineer Intern",
+    organization: "HISSA Syariah Saham Indonesia",
+    period: "Jun 2026 - Present",
+    description: [
+      "Building the HISSA Academy platform as a full-stack engineer.",
+    ],
+  },
+  {
     position: "Backend Developer Intern",
     organization: "Public Relations Office of ITERA",
     period: "Jul 2025 - Aug 2025",
@@ -193,12 +201,12 @@ export const projects: Project[] = [
     stack: ["Golang", "React.js", "PostgreSQL"],
     images: [
       {
-        src: examImageOne,
+        src: examImageTwo,
         alt: "Web-based examination system preview",
         caption: "Examination dashboard preview",
       },
       {
-        src: examImageTwo,
+        src: examImageOne,
         alt: "Exam management interface preview",
         caption: "Exam management flow",
       },

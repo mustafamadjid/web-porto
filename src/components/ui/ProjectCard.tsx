@@ -8,15 +8,31 @@ type ProjectCardProps = {
   period: string;
   description: string;
   stack: string[];
+  images: {
+    src: string;
+    alt: string;
+  }[];
 };
 
-const ProjectCard = ({ slug, name, period, description, stack }: ProjectCardProps) => {
+const ProjectCard = ({ slug, name, period, description, stack, images }: ProjectCardProps) => {
+  const thumbnail = images[0];
+
   return (
     <Link
       to={`/projects/${slug}`}
       className="group flex h-full flex-col border-2 border-neutral-950 bg-white p-6 text-left transition duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[12px_12px_0_#111111] focus:outline-none focus-visible:ring-4 focus-visible:ring-neutral-950/20"
       aria-label={`View ${name} project detail`}
     >
+      {thumbnail && (
+        <div className="mb-6 aspect-[16/9] overflow-hidden border-2 border-neutral-950 bg-neutral-100">
+          <img
+            src={thumbnail.src}
+            alt={thumbnail.alt}
+            className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+      )}
       <p className="text-sm font-semibold text-neutral-500">{period}</p>
       <h3 className="mt-4 text-xl font-extrabold text-neutral-950">{name}</h3>
       <p className="mt-4 flex-1 text-sm leading-7 text-neutral-600">{description}</p>
