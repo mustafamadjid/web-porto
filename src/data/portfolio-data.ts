@@ -16,7 +16,7 @@ export const personalInfo = {
   location: "Lampung, Indonesia",
   email: "madjidmustafa@gmail.com",
   phone: "+62 821 7567 3461",
-  resumeUrl: "/CV_Mustafa_English.pdf",
+  resumeUrl: "/CV_Mustafa_English_2026_New.pdf",
   githubUrl: "https://github.com/mustafamadjid",
   linkedinUrl:
     "https://www.linkedin.com/in/athaullah-mustafa-madjid-60a330245/",
