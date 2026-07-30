@@ -1,13 +1,12 @@
 import { personalInfo } from "../../data/portfolio-data";
 import githubIcon from "../../assets/icons/github.svg";
 import linkedinIcon from "../../assets/icons/linkedin-solid.svg";
-import { MailIcon, PhoneIcon } from "./Icons";
+import { MailIcon } from "./Icons";
 
 const links = [
   { label: "GitHub", href: personalInfo.githubUrl, iconSrc: githubIcon },
   { label: "LinkedIn", href: personalInfo.linkedinUrl, iconSrc: linkedinIcon },
   { label: "Email", href: `mailto:${personalInfo.email}`, icon: MailIcon },
-  { label: "Phone", href: `tel:${personalInfo.phone.replace(/\s/g, "")}`, icon: PhoneIcon },
 ];
 
 const SocialIcons = () => {
