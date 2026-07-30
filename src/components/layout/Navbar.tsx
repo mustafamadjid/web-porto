@@ -12,7 +12,7 @@ const Navbar = () => {
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
         <a href="/#home" className="flex items-center gap-3 font-extrabold text-neutral-950" onClick={closeMenu}>
           <span className="grid size-10 place-items-center bg-neutral-950 text-white">M</span>
-          <span>{personalInfo.shortName}</span>
+          <span className="hidden sm:inline">{personalInfo.shortName}</span>
         </a>
 
         <div className="hidden items-center gap-8 md:flex">

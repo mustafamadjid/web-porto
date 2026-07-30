@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import Footer from "../components/layout/Footer";
 import Navbar from "../components/layout/Navbar";
 import AboutSection from "../components/sections/AboutSection";
@@ -9,16 +11,20 @@ import ProjectsSection from "../components/sections/ProjectsSection";
 import SkillsSection from "../components/sections/SkillsSection";
 
 const Home = () => {
+  useEffect(() => {
+    document.title = "Athaullah Mustafa Madjid | Backend Software Engineer";
+  }, []);
+
   return (
     <div className="parallax-page min-h-screen text-neutral-950">
       <Navbar />
-      <main>
+      <main id="main">
         <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <ExperienceSection />
         <ProjectsSection />
+        <ExperienceSection />
+        <SkillsSection />
         <EducationSection />
+        <AboutSection />
         <ContactSection />
       </main>
       <Footer />
