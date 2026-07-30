@@ -1,13 +1,13 @@
 import { personalInfo } from "../../data/portfolio-data";
-import { MailIcon, MapPinIcon, PhoneIcon } from "../ui/Icons";
+import { DownloadIcon, ExternalLinkIcon, MailIcon, MapPinIcon } from "../ui/Icons";
 import Parallax from "../ui/Parallax";
 import SectionHeading from "../ui/SectionHeading";
 import ScrollReveal from "../ui/ScrollReveal";
-import SocialIcons from "../ui/SocialIcons";
 
 const contacts = [
   { label: "Email", value: personalInfo.email, href: `mailto:${personalInfo.email}`, icon: MailIcon },
-  { label: "Phone", value: personalInfo.phone, href: `tel:${personalInfo.phone.replace(/\s/g, "")}`, icon: PhoneIcon },
+  { label: "GitHub", value: personalInfo.githubUrl, href: personalInfo.githubUrl, icon: ExternalLinkIcon },
+  { label: "LinkedIn", value: personalInfo.linkedinUrl, href: personalInfo.linkedinUrl, icon: ExternalLinkIcon },
   { label: "Location", value: personalInfo.location, href: "#home", icon: MapPinIcon },
 ];
 
@@ -25,16 +25,23 @@ const ContactSection = () => {
         <ScrollReveal>
           <SectionHeading title="Contact" highlight="Me" align="left" />
           <p className="mt-6 max-w-xl text-base leading-8 text-neutral-600">
-            Open to backend development, full-stack collaboration, internship opportunities, and student-focused technical initiatives.
+            Interested in discussing a backend or software engineering opportunity? Reach out by email or LinkedIn.
           </p>
-          <div className="mt-8">
-            <SocialIcons />
+          <div className="mt-8 flex flex-wrap gap-4">
+            <a
+              href={personalInfo.resumeUrl}
+              download
+              className="inline-flex items-center gap-2 bg-neutral-950 px-6 py-4 font-bold text-white transition hover:bg-neutral-700"
+            >
+              Download Resume
+              <DownloadIcon className="size-5" />
+            </a>
           </div>
         </ScrollReveal>
         <div className="grid gap-4">
           {contacts.map(({ label, value, href, icon: Icon }, index) => (
             <ScrollReveal key={label} delay={index * 80}>
-              <a href={href} className="flex items-center gap-5 border-2 border-neutral-950 bg-white p-5 transition hover:bg-neutral-950 hover:text-white">
+              <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined} className="flex items-center gap-5 border-2 border-neutral-950 bg-white p-5 transition hover:bg-neutral-950 hover:text-white">
                 <span className="grid size-12 shrink-0 place-items-center border border-current">
                   <Icon className="size-5" />
                 </span>

@@ -17,6 +17,27 @@
   * {
     box-sizing: border-box;
   }
+
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    background: #171717;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    font-weight: 700;
+    font-size: 0.875rem;
+  }
+
+  .skip-link:focus {
+    left: 0;
+  }
+
+  :focus-visible {
+    outline: 3px solid #171717;
+    outline-offset: 3px;
+  }
 }
 
 @layer components {

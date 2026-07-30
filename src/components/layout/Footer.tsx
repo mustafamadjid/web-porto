@@ -13,7 +13,7 @@ const Footer = () => {
             <span>{personalInfo.shortName}</span>
           </a>
           <p className="mt-4 text-sm text-neutral-400">
-            Copyright 2026 Athaullah Mustafa Madjid. All rights reserved.
+            Athaullah Mustafa Madjid — Backend Software Engineer
           </p>
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-neutral-300">

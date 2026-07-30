@@ -10,7 +10,9 @@ const getLatestYear = (period: string) => {
 };
 
 const ProjectsSection = () => {
-  const sortedProjects = [...projects].sort((a, b) => getLatestYear(b.period) - getLatestYear(a.period));
+  const featuredProjects = projects
+    .filter((p) => p.featured)
+    .sort((a, b) => getLatestYear(b.period) - getLatestYear(a.period));
 
   return (
     <section id="projects" className="section-parallax-grid relative isolate overflow-hidden scroll-mt-24 px-5 py-16 sm:px-8 lg:py-24">
@@ -23,12 +25,23 @@ const ProjectsSection = () => {
       </Parallax>
       <div className="mx-auto max-w-7xl">
         <ScrollReveal>
-          <SectionHeading title="My" highlight="Projects" />
+          <SectionHeading title="Featured" highlight="Projects" />
+          <p className="mt-6 max-w-3xl text-base leading-8 text-neutral-600">
+            Each project starts with a real problem, includes the role and stack used, and ends with a measurable outcome.
+          </p>
         </ScrollReveal>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {sortedProjects.map((project, index) => (
-            <ScrollReveal key={project.name} delay={(index % 3) * 90}>
-              <ProjectCard {...project} />
+          {featuredProjects.map((project, index) => (
+            <ScrollReveal key={project.slug} delay={(index % 3) * 90}>
+              <ProjectCard
+                slug={project.slug}
+                name={project.name}
+                problem={project.problem}
+                role={project.role}
+                result={project.result}
+                stack={project.stack}
+                images={project.images}
+              />
             </ScrollReveal>
           ))}
         </div>

@@ -11,21 +11,16 @@ const ProjectDetail = () => {
   const project = projects.find((item) => item.slug === slug);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
 
-  if (!project) {
-    return <Navigate to="/#projects" replace />;
-  }
-
-  const metaItems = [
-    { label: "Role", value: project.role },
-    { label: "Year", value: project.year },
-    { label: "Period", value: project.period },
-    { label: "Type", value: project.type },
-    { label: "Status", value: project.status },
-  ];
   const selectedImage =
-    selectedImageIndex === null ? null : project.images[selectedImageIndex];
+    project && selectedImageIndex !== null ? project.images[selectedImageIndex] : null;
   const selectedImageNumber =
     selectedImageIndex === null ? null : selectedImageIndex + 1;
+
+  useEffect(() => {
+    if (project) {
+      document.title = `${project.name} Case Study | Athaullah Mustafa Madjid`;
+    }
+  }, [project]);
 
   useEffect(() => {
     if (!selectedImage) {
@@ -46,6 +41,18 @@ const ProjectDetail = () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [selectedImage]);
+
+  if (!project) {
+    return <Navigate to="/#projects" replace />;
+  }
+
+  const metaItems = [
+    { label: "Role", value: project.role },
+    { label: "Year", value: project.year },
+    { label: "Period", value: project.period },
+    { label: "Type", value: project.type },
+    { label: "Status", value: project.status },
+  ];
 
   return (
     <div className="parallax-page min-h-screen text-neutral-950">
@@ -117,37 +124,48 @@ const ProjectDetail = () => {
           </div>
         </section>
 
+        {project.images.length ? (
+          <section className="px-5 py-12 sm:px-8 lg:py-16">
+            <div className="mx-auto max-w-7xl">
+              <div className="flex snap-x gap-5 overflow-x-auto pb-5">
+                {project.images.map((image, index) => (
+                  <figure
+                    key={`${image.src}-${index}`}
+                    className="min-w-[90%] snap-start border-2 border-neutral-950 bg-white shadow-[8px_8px_0_#111111] sm:min-w-[680px] lg:min-w-[860px] xl:min-w-[960px]"
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setSelectedImageIndex(index)}
+                      className="group block w-full cursor-zoom-in bg-neutral-100 text-left"
+                      aria-label={`Open larger preview for ${image.caption}`}
+                    >
+                      <span className="relative block aspect-[16/9] overflow-hidden">
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+                        />
+                        <span className="absolute bottom-4 right-4 bg-neutral-950 px-4 py-2 text-xs font-extrabold uppercase tracking-wide text-white opacity-0 transition group-hover:opacity-100">
+                          Click to view
+                        </span>
+                      </span>
+                    </button>
+                    <figcaption className="border-t-2 border-neutral-950 px-5 py-4 text-sm font-bold text-neutral-700">
+                      {String(index + 1).padStart(2, "0")} / {project.images.length} - {image.caption}
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            </div>
+          </section>
+        ) : null}
+
         <section className="px-5 py-12 sm:px-8 lg:py-16">
           <div className="mx-auto max-w-7xl">
-            <div className="flex snap-x gap-5 overflow-x-auto pb-5">
-              {project.images.map((image, index) => (
-                <figure
-                  key={`${image.src}-${index}`}
-                  className="min-w-[90%] snap-start border-2 border-neutral-950 bg-white shadow-[8px_8px_0_#111111] sm:min-w-[680px] lg:min-w-[860px] xl:min-w-[960px]"
-                >
-                  <button
-                    type="button"
-                    onClick={() => setSelectedImageIndex(index)}
-                    className="group block w-full cursor-zoom-in bg-neutral-100 text-left"
-                    aria-label={`Open larger preview for ${image.caption}`}
-                  >
-                    <span className="relative block aspect-[16/9] overflow-hidden">
-                      <img
-                        src={image.src}
-                        alt={image.alt}
-                        className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
-                      />
-                      <span className="absolute bottom-4 right-4 bg-neutral-950 px-4 py-2 text-xs font-extrabold uppercase tracking-wide text-white opacity-0 transition group-hover:opacity-100">
-                        Click to view
-                      </span>
-                    </span>
-                  </button>
-                  <figcaption className="border-t-2 border-neutral-950 px-5 py-4 text-sm font-bold text-neutral-700">
-                    {String(index + 1).padStart(2, "0")} / {project.images.length} - {image.caption}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
+            <h2 className="text-3xl font-black text-neutral-950">Problem</h2>
+            <p className="mt-5 max-w-4xl text-base leading-8 text-neutral-600">
+              {project.problem}
+            </p>
           </div>
         </section>
 
@@ -169,6 +187,58 @@ const ProjectDetail = () => {
             </div>
           </div>
         </section>
+
+        {(project.decisions?.length || project.testing || project.challenges?.length) ? (
+          <section className="px-5 pb-16 sm:px-8 lg:pb-24">
+            <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-3">
+              {project.decisions?.length ? (
+                <section className="border-2 border-neutral-950 bg-white p-6 lg:col-span-2">
+                  <h2 className="text-2xl font-black text-neutral-950">Engineering Decisions</h2>
+                  <div className="mt-5 grid gap-4">
+                    {project.decisions.map((item) => (
+                      <article key={item.decision} className="border border-neutral-200 p-4">
+                        <h3 className="text-sm font-extrabold text-neutral-950">{item.decision}</h3>
+                        <p className="mt-3 text-sm leading-7 text-neutral-600"><span className="font-bold text-neutral-950">Reason:</span> {item.reason}</p>
+                        <p className="mt-2 text-sm leading-7 text-neutral-600"><span className="font-bold text-neutral-950">Trade-off:</span> {item.tradeOff}</p>
+                      </article>
+                    ))}
+                  </div>
+                </section>
+              ) : null}
+
+              {project.testing ? (
+                <section className="border-2 border-neutral-950 bg-white p-6">
+                  <h2 className="text-2xl font-black text-neutral-950">Testing & Validation</h2>
+                  <p className="mt-4 text-sm leading-7 text-neutral-600">{project.testing.scenario}</p>
+                  <p className="mt-3 text-sm leading-7 text-neutral-600">{project.testing.environment}</p>
+                  <ul className="mt-4 space-y-3">
+                    {project.testing.metrics.map((metric) => (
+                      <li key={metric} className="flex gap-3 text-sm leading-7 text-neutral-600">
+                        <span className="mt-2 size-2 shrink-0 bg-neutral-950" />
+                        <span>{metric}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ) : null}
+
+              {project.challenges?.length ? (
+                <section className="border-2 border-neutral-950 bg-white p-6 lg:col-span-3">
+                  <h2 className="text-2xl font-black text-neutral-950">Challenges & Lessons Learned</h2>
+                  <div className="mt-5 grid gap-4 md:grid-cols-2">
+                    {project.challenges.map((item) => (
+                      <article key={item.challenge} className="border border-neutral-200 p-4">
+                        <h3 className="text-sm font-extrabold text-neutral-950">{item.challenge}</h3>
+                        <p className="mt-3 text-sm leading-7 text-neutral-600"><span className="font-bold text-neutral-950">Solution:</span> {item.solution}</p>
+                        <p className="mt-2 text-sm leading-7 text-neutral-600"><span className="font-bold text-neutral-950">Lesson:</span> {item.lesson}</p>
+                      </article>
+                    ))}
+                  </div>
+                </section>
+              ) : null}
+            </div>
+          </section>
+        ) : null}
       </main>
       <Footer />
 

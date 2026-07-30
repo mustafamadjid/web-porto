@@ -1,8 +1,6 @@
-type ExperienceCardProps = {
-  position: string;
-  organization: string;
-  period: string;
-  description: string[];
+import type { Experience } from "../../data/portfolio-data";
+
+type ExperienceCardProps = Experience & {
   index: number;
   total: number;
 };
@@ -11,7 +9,8 @@ const ExperienceCard = ({
   position,
   organization,
   period,
-  description,
+  context,
+  keyContributions,
   index,
   total,
 }: ExperienceCardProps) => {
@@ -29,21 +28,20 @@ const ExperienceCard = ({
         className={`ml-8 border-2 border-neutral-950 bg-white p-6 text-neutral-950 shadow-[10px_10px_0_#d4d4d4] transition hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[14px_14px_0_#d4d4d4] lg:ml-0 lg:w-[calc(50%-2.75rem)] ${cardSideClass}`}
       >
         <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-          <div className="flex gap-4">
-            <div className="grid size-12 shrink-0 place-items-center bg-neutral-950 text-lg font-extrabold text-white">
-              IT
-            </div>
-            <div>
-              <h3 className="text-xl font-bold">{position}</h3>
-              <p className="mt-1 text-sm font-semibold text-neutral-600">{organization}</p>
-            </div>
+          <div>
+            <h3 className="text-xl font-bold">{position}</h3>
+            <p className="mt-1 text-sm font-semibold text-neutral-600">{organization}</p>
           </div>
           <p className="text-sm font-extrabold text-neutral-700 md:text-right">
             {period}
           </p>
         </div>
-        <ul className="mt-5 space-y-2 text-sm leading-6 text-neutral-700">
-          {description.map((item) => (
+        <p className="mt-5 text-sm leading-7 text-neutral-600">{context}</p>
+        <h4 className="mt-6 text-xs font-extrabold uppercase tracking-wider text-neutral-500">
+          Key Contributions
+        </h4>
+        <ul className="mt-3 space-y-2 text-sm leading-6 text-neutral-700">
+          {keyContributions.map((item) => (
             <li key={item} className="flex gap-3">
               <span className="mt-2 size-1.5 shrink-0 bg-neutral-950" />
               <span>{item}</span>

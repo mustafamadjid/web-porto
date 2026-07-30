@@ -16,7 +16,7 @@ const ExperienceSection = () => {
       </Parallax>
       <div className="mx-auto max-w-7xl">
         <ScrollReveal>
-          <SectionHeading title="My" highlight="Experience" tone="dark" />
+          <SectionHeading title="Work" highlight="Experience" tone="dark" />
         </ScrollReveal>
         <div className="relative mt-14 space-y-12">
           <div className="absolute bottom-0 left-0 top-0 w-px bg-white/40 lg:left-1/2" aria-hidden="true" />

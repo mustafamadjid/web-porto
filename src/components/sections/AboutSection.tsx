@@ -1,5 +1,5 @@
 import aboutIllustration from "../../assets/images/About me.png";
-import { education, personalInfo } from "../../data/portfolio-data";
+import { personalInfo } from "../../data/portfolio-data";
 import Parallax from "../ui/Parallax";
 import SectionHeading from "../ui/SectionHeading";
 import ScrollReveal from "../ui/ScrollReveal";
@@ -20,13 +20,9 @@ const AboutSection = () => {
         <ScrollReveal delay={120}>
           <SectionHeading title="About" highlight="Me" align="left" />
           <div className="mt-8 space-y-5 text-base leading-8 text-neutral-600">
-            <p>{personalInfo.about}</p>
-            <p>
-              Currently studying {education[0].degree} at {education[0].school}, I focus on backend development, database systems, and practical full-stack delivery.
-            </p>
-            <p>
-              Outside implementation work, I have supported students as a practicum assistant, lecturer assistant, and education mentor, sharpening both my technical communication and team leadership.
-            </p>
+            {personalInfo.about.split("\n\n").map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
           </div>
         </ScrollReveal>
       </div>
