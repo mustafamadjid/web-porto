@@ -57,6 +57,7 @@ export const skills: Skill[] = [
   { name: "PostgreSQL", icon: "https://cdn.simpleicons.org/postgresql/111111" },
   { name: "MySQL", icon: "https://cdn.simpleicons.org/mysql/111111" },
   { name: "Docker", icon: "https://cdn.simpleicons.org/docker/111111" },
+  { name: "Linux", icon: "https://cdn.simpleicons.org/linux/111111" },
   { name: "Git", icon: "https://cdn.simpleicons.org/git/111111" },
   { name: "GitHub", icon: "https://cdn.simpleicons.org/github/111111" },
   { name: "HTML5", icon: "https://cdn.simpleicons.org/html5/111111" },
