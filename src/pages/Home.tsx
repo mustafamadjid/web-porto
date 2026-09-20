@@ -20,11 +20,11 @@ const Home = () => {
       <Navbar />
       <main id="main">
         <HeroSection />
+        <AboutSection />
         <ProjectsSection />
         <ExperienceSection />
         <SkillsSection />
         <EducationSection />
-        <AboutSection />
         <ContactSection />
       </main>
       <Footer />

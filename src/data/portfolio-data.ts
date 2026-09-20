@@ -691,8 +691,8 @@ export const education = [
   {
     school: "Institut Teknologi Sumatera",
     degree: "B.S. Informatics Engineering",
-    period: "Aug 2022 – Present",
-    detail: "GPA: 3.51/4.00",
+    period: "Aug 2022 – 2026",
+    detail: "GPA: 3.60/4.00",
   },
   {
     school: "SMA IT Fitrah Insani Bandar Lampung",
