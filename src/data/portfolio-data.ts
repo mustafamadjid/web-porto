@@ -5,8 +5,19 @@ import ecoImageThree from "../assets/images/project/ecobanjar/eco-3.png";
 import examImageOne from "../assets/images/project/exam/exam-1.png";
 import examImageTwo from "../assets/images/project/exam/exam-2.png";
 import examImageThree from "../assets/images/project/exam/exam-3.png";
+import fdeImageOne from "../assets/images/project/financial-data-engine/fde-1.png";
+import fdeImageTwo from "../assets/images/project/financial-data-engine/fde-2.png";
+import fdeImageThree from "../assets/images/project/financial-data-engine/fde-3.png";
+import fdeImageFour from "../assets/images/project/financial-data-engine/fde-4.png";
+import learningPlatformImageOne from "../assets/images/project/learning-platform/lp-1.jpg";
+import learningPlatformImageTwo from "../assets/images/project/learning-platform/lp-2.jpg";
+import learningPlatformImageThree from "../assets/images/project/learning-platform/lp-3.jpg";
+import learningPlatformImageFour from "../assets/images/project/learning-platform/lp-4.jpg";
 import ppidImageOne from "../assets/images/project/ppid/ppid-1.png";
 import ppidImageTwo from "../assets/images/project/ppid/ppid-2.png";
+import stockDashboardImageOne from "../assets/images/project/stock-dashboard/sa-1.jpg";
+import stockDashboardImageTwo from "../assets/images/project/stock-dashboard/sa-2.jpg";
+import stockDashboardImageThree from "../assets/images/project/stock-dashboard/sa-3.jpg";
 
 export const personalInfo = {
   name: "Athaullah Mustafa Madjid",
@@ -440,46 +451,145 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "hissa-learning-platform",
-    name: "HISSA Learning Platform",
+    slug: "hissa-stock-analysis-dashboard",
+    name: "HISSA Stock Analysis Dashboard",
     period: "Jun 2026 - Sep 2026",
     year: "2026",
     role: "Fullstack Engineer Intern",
     type: "Internship Project",
-    status: "Internship project",
+    status: "Completed",
     problem:
-      "HISSA Syariah Saham Indonesia needed a learning platform and stock screening dashboard to educate investors on sharia stock investing, supported by data from a cross-functional team.",
+      "Investors needed a clear way to explore stock accumulation, distribution, net value, and foreign/domestic investor flows across configurable date ranges and stock codes.",
     description:
-      "A learning management platform with course tracking, Google OAuth, role-based access, and statistical stock screening charts built with Laravel, MySQL, and Docker.",
+      "A full-stack stock market analytics dashboard built with Laravel, PostgreSQL, Vue 3, and TypeScript for exploring market flows through interactive charts and rankings.",
     result:
-      "Delivered the Academy platform and stock screening dashboard as the sole fullstack engineer within a five-person team over three months.",
-    stack: ["Laravel", "MySQL", "Docker"],
-    images: [],
+      "Centralized filtered, aggregated, ranked, and paginated market analytics into reusable RESTful APIs and interactive visualizations for frontend decision support.",
+    stack: [
+      "Laravel",
+      "PostgreSQL",
+      "Vue 3",
+      "TypeScript",
+      "Apache ECharts",
+      "TanStack Vue Query",
+      "Zod",
+    ],
+    images: [
+      {
+        src: stockDashboardImageOne,
+        alt: "HISSA stock analysis dashboard preview",
+        caption: "Market analytics dashboard",
+      },
+      {
+        src: stockDashboardImageTwo,
+        alt: "HISSA stock flow visualization preview",
+        caption: "Investor flow visualization",
+      },
+      {
+        src: stockDashboardImageThree,
+        alt: "HISSA stock ranking visualization preview",
+        caption: "Stock ranking and heatmap views",
+      },
+    ],
     overview: [
-      "HISSA is a sharia stock screening platform that needed an education module (HISSA Academy) to help investors learn about stock fundamentals and sharia-compliant investing.",
-      "As the sole fullstack engineer on a five-person team (four data analysts), I built the Academy platform from the ground up while also developing a statistical charting dashboard that consumed stock data from the team\u0027s scraping scripts.",
+      "The dashboard turns stock-market data into practical views for accumulation, distribution, net value, and foreign/domestic investor flows. Users can narrow the analysis by date range and stock code while comparing ranked and aggregated results.",
+      "The system combines a feature-oriented Laravel backend with a Vue 3 and TypeScript frontend so analytics endpoints, chart mappers, validation, and caching remain reusable across the dashboard.",
     ],
     responsibilities: [
-      "Built the HISSA Academy learning platform using Laravel and MySQL.",
-      "Implemented Google OAuth for user authentication.",
-      "Configured Laravel Sanctum for session-based authentication and RBAC.",
-      "Developed statistical charting for stock screening data provided by the data analyst team.",
-      "Deployed the full application using Docker on a Linux VPS.",
-      "Collaborated with a cross-functional team of four data analysts.",
+      "Developed the full-stack dashboard using Laravel, PostgreSQL, Vue 3, and TypeScript.",
+      "Built RESTful analytics APIs with date-range filtering, stock-code filtering, aggregation, ranking, pagination, and configurable analytical parameters.",
+      "Structured backend modules with repositories, services, contracts, controllers, and domain-specific features.",
+      "Implemented frontend data fetching and caching with TanStack Vue Query.",
+      "Added API response validation with Zod and reusable chart mappers for consistent visualizations.",
+      "Added API parameter validation, IP-based throttling, request/query performance logging, and automated testing.",
     ],
     features: [
-      "Learning path and course progress tracking.",
-      "Quiz workflow and certificate generation.",
-      "Google OAuth and Laravel Sanctum session authentication.",
-      "Role-based access control (admin, student, analyst).",
-      "Statistical stock screening charts from scraped data.",
-      "Docker-based deployment on Linux VPS.",
+      "Net value rankings and investor dominance ratios.",
+      "Stock heatmaps and foreign-flow scatter plots.",
+      "Cumulative net value and investor net-flow charts using Apache ECharts.",
+      "Configurable analytical parameters for frontend visualization.",
+      "Reusable feature modules and chart mappers for consistent data presentation.",
     ],
     results: [
-      "Delivered the HISSA Academy platform within the three-month internship period.",
-      "Integrated stock screening charts consuming data from the analyst team\u0027s scraping pipeline.",
-      "Implemented authentication and role-based access for multi-role system access.",
-      "Demonstrated fullstack delivery in a cross-functional team environment.",
+      "Delivered a unified dashboard for accumulation, distribution, net value, and investor-flow analysis.",
+      "Supported consistent analytics responses through filterable, aggregatable, ranked, and paginated API endpoints.",
+      "Improved maintainability through feature-oriented backend boundaries and reusable frontend modules.",
+      "Added automated coverage with Pest, Vitest, Vue Test Utils, and TypeScript type checking.",
+    ],
+    featured: true,
+    testing: {
+      scenario:
+        "Automated API, frontend component, data-mapping, and TypeScript validation checks for analytics workflows.",
+      environment: "Laravel, Pest, Vue 3, Vitest, Vue Test Utils, and TypeScript.",
+      metrics: [
+        "API parameter validation and throttling behavior covered.",
+        "Frontend chart and response-mapping workflows covered.",
+        "TypeScript type checking used to catch contract mismatches before release.",
+      ],
+    },
+    links: [
+      { label: "GitHub", href: "https://github.com/mustafamadjid/project-hissa-sandbox" },
+    ],
+  },
+  {
+    slug: "hissa-academy-learning-platform",
+    name: "HISSA Academy Learning Platform",
+    period: "Jun 2026 - Sep 2026",
+    year: "2026",
+    role: "Fullstack Engineer Intern",
+    type: "Internship Project",
+    status: "Completed",
+    problem:
+      "HISSA needed a learning platform for course delivery, learning progress, quizzes, and certificates while its frontend also consumed structured stock-market analytics from backend APIs.",
+    description:
+      "A Laravel and PostgreSQL learning platform with Vue.js and TypeScript interfaces for course management, dashboards, user workflows, certificates, and stock-market data visualization.",
+    result:
+      "Delivered consistent authenticated learning workflows and structured analytics responses while keeping public identifiers separate from internal database IDs.",
+    stack: ["Laravel", "PostgreSQL", "Vue.js", "TypeScript", "Laravel Sanctum"],
+    images: [
+      {
+        src: learningPlatformImageOne,
+        alt: "HISSA Academy learning platform preview",
+        caption: "Academy platform overview",
+      },
+      {
+        src: learningPlatformImageTwo,
+        alt: "HISSA Academy course management preview",
+        caption: "Course management workflow",
+      },
+      {
+        src: learningPlatformImageThree,
+        alt: "HISSA Academy learning dashboard preview",
+        caption: "Learning dashboard",
+      },
+      {
+        src: learningPlatformImageFour,
+        alt: "HISSA Academy stock analytics preview",
+        caption: "Stock analytics interface",
+      },
+    ],
+    overview: [
+      "HISSA Academy combines learning content and investor workflows in one platform. The system supports authentication, course management, progress tracking, quizzes, certificate verification, dashboards, and stock-market data visualization.",
+      "The backend uses Laravel and PostgreSQL with consistent resource endpoints, validation handling, pagination metadata, Laravel Sanctum authentication, and UUID-based public identifiers so internal database IDs are not exposed to clients.",
+    ],
+    responsibilities: [
+      "Developed RESTful APIs and backend modules using Laravel and PostgreSQL for authentication, course management, learning progress, quizzes, and certificate verification.",
+      "Built Vue.js and TypeScript interfaces for course management, dashboards, user workflows, and data visualization.",
+      "Developed stock-market analytics APIs with server-side filtering, aggregation, grouping, and pagination.",
+      "Designed consistent API responses, validation handling, pagination metadata, and Laravel Sanctum authentication flows.",
+      "Used UUID-based public identifiers and structured resource endpoints to avoid exposing internal database IDs.",
+    ],
+    features: [
+      "Course management, learning progress tracking, quizzes, and certificate verification.",
+      "Authenticated dashboards and role-based user workflows.",
+      "Server-side analytics filtering, aggregation, grouping, and pagination.",
+      "Structured API response conventions and pagination metadata.",
+      "UUID-based public identifiers for safer resource endpoints.",
+    ],
+    results: [
+      "Delivered a unified Academy experience for course delivery and investor learning workflows.",
+      "Transformed financial data into structured API responses ready for frontend visualization.",
+      "Established consistent authentication, validation, pagination, and public-resource conventions.",
+      "Kept client-facing identifiers separate from internal relational database IDs.",
     ],
     featured: true,
     decisions: [
@@ -488,8 +598,91 @@ export const projects: Project[] = [
       { decision: "Separate Academy and Charts as modules within the same Laravel app.", reason: "Three-month internship timeline made separate services impractical.", tradeOff: "Module boundaries become important as features diverge." },
     ],
     challenges: [
-      { challenge: "Delivering both Academy and Chart modules within a tight three-month timeline.", solution: "Front-load Academy CRUD then iterate on Charts after core education features were stable.", lesson: "Feature sequencing is a product decision, not only a technical one." },
-      { challenge: "Consuming scraped stock data from the analyst team in real time.", solution: "Pre-processed scraped data into a staging table with daily batch jobs.", lesson: "Cross-functional pipelines need clear data contracts between teams." },
+      { challenge: "Keeping learning workflows and analytics endpoints consistent across multiple frontend screens.", solution: "Defined shared response conventions, validation rules, pagination metadata, and resource boundaries.", lesson: "Consistent contracts reduce frontend integration cost as feature areas grow." },
+      { challenge: "Preventing internal database identifiers from leaking into public API URLs.", solution: "Used UUID-based public identifiers and structured resource endpoints.", lesson: "Public API identifiers should be designed as part of the domain boundary." },
+    ],
+    links: [
+      { label: "GitHub", href: "https://github.com/mustafamadjid/hissa-academy" },
+    ],
+  },
+  {
+    slug: "hissa-financial-data-engine",
+    name: "HISSA Financial Data Engine",
+    period: "Jun 2026 - Sep 2026",
+    year: "2026",
+    role: "Backend Engineer",
+    type: "Financial Data Platform",
+    status: "Completed",
+    problem:
+      "Financial filing data needs a traceable and reliable path from XBRL discovery and parsing through validation, normalization, and publication.",
+    description:
+      "An end-to-end financial data processing pipeline for XBRL and iXBRL filings, combining a Laravel backend with a Python Arelle parser and operational review workflows.",
+    result:
+      "Created a controlled pipeline for publishing normalized financial data with source lineage, immutable raw facts, quality gates, versioned contracts, and reprocessing support.",
+    stack: [
+      "Laravel",
+      "PHP",
+      "Python",
+      "Arelle",
+      "Redis",
+      "MySQL",
+      "Vue 3",
+      "TypeScript",
+      "Inertia.js",
+      "JSON Schema",
+      "OpenAPI",
+    ],
+    images: [
+      {
+        src: fdeImageOne,
+        alt: "HISSA financial data engine dashboard preview",
+        caption: "Financial data engine overview",
+      },
+      {
+        src: fdeImageTwo,
+        alt: "HISSA financial data engine pipeline preview",
+        caption: "Pipeline monitoring workflow",
+      },
+      {
+        src: fdeImageThree,
+        alt: "HISSA financial data engine validation preview",
+        caption: "Validation and review workflow",
+      },
+      {
+        src: fdeImageFour,
+        alt: "HISSA financial data engine concept mapping preview",
+        caption: "Concept mapping and financial data review",
+      },
+    ],
+    overview: [
+      "The engine processes XBRL and iXBRL filings from discovery and artifact download to parsing, normalization, validation, and publishing. A Python-based Arelle parser extracts facts, contexts, units, dimensions, and filing metadata for the Laravel backend.",
+      "The system treats data quality and lineage as first-class concerns: raw facts remain immutable, decimal precision and XBRL nil values are preserved, and normalized financial concepts are governed by versioned mapping rules and contracts.",
+    ],
+    responsibilities: [
+      "Built filing discovery, artifact download, parsing, normalization, validation, and publishing stages.",
+      "Integrated the Python Arelle parser with a Laravel backend to extract financial facts, contexts, units, dimensions, and filing metadata.",
+      "Implemented asynchronous Laravel Queue and Redis processing with stage-specific jobs, retry policies, idempotency controls, correlation IDs, and reprocessing workflows.",
+      "Designed canonical financial data models and versioned mapping rules for source-specific XBRL concepts.",
+      "Defined versioned JSON Schema and OpenAPI contracts for parser outputs, raw facts, normalized facts, mapping rules, validation results, and published data.",
+      "Developed operational dashboards for pipeline monitoring, financial-data review, concept mapping, validation results, retry, and controlled reprocessing.",
+    ],
+    features: [
+      "Quality gates with VERIFIED, REVIEW_REQUIRED, and FAILED states before publishing.",
+      "Source lineage and immutable raw fact storage for traceability.",
+      "Preservation of decimal precision and XBRL nil values.",
+      "Versioned mapping rules and canonical financial data models.",
+      "Stage-specific asynchronous jobs with retry and idempotency controls.",
+      "Operational monitoring, review, retry, and controlled reprocessing dashboards.",
+    ],
+    results: [
+      "Delivered a traceable pipeline from filing discovery to published financial data.",
+      "Separated raw source facts from normalized financial concepts without losing lineage.",
+      "Prevented unverified data from being published through explicit quality gates.",
+      "Established machine-readable JSON Schema and OpenAPI contracts for cross-service integration.",
+    ],
+    featured: true,
+    links: [
+      { label: "GitHub", href: "https://github.com/mustafamadjid/financial-data-engine" },
     ],
   },
 ];
