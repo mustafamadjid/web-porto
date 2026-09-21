@@ -6,10 +6,12 @@ import ScrollReveal from "../ui/ScrollReveal";
 
 const contacts = [
   { label: "Email", value: personalInfo.email, href: `mailto:${personalInfo.email}`, icon: MailIcon },
-  { label: "GitHub", value: personalInfo.githubUrl, href: personalInfo.githubUrl, icon: ExternalLinkIcon },
-  { label: "LinkedIn", value: personalInfo.linkedinUrl, href: personalInfo.linkedinUrl, icon: ExternalLinkIcon },
-  { label: "Location", value: personalInfo.location, href: "#home", icon: MapPinIcon },
+  { label: "GitHub", value: "github.com/mustafamadjid", href: personalInfo.githubUrl, icon: ExternalLinkIcon },
+  { label: "LinkedIn", value: "linkedin.com/in/athaullah-mustafa-madjid", href: personalInfo.linkedinUrl, icon: ExternalLinkIcon },
+  { label: "Location", value: personalInfo.location, icon: MapPinIcon },
 ];
+
+const contactSurfaceClassName = "flex items-center gap-5 border-2 border-neutral-950 bg-white p-5";
 
 const ContactSection = () => {
   return (
@@ -31,7 +33,7 @@ const ContactSection = () => {
             <a
               href={personalInfo.resumeUrl}
               download
-              className="inline-flex items-center gap-2 bg-neutral-950 px-6 py-4 font-bold text-white transition hover:bg-neutral-700"
+              className="motion-safe:active:translate-y-px inline-flex items-center gap-2 bg-neutral-950 px-6 py-4 font-bold text-white transition duration-200 hover:bg-neutral-700"
             >
               Download Resume
               <DownloadIcon className="size-5" />
@@ -39,19 +41,38 @@ const ContactSection = () => {
           </div>
         </ScrollReveal>
         <div className="grid gap-4">
-          {contacts.map(({ label, value, href, icon: Icon }, index) => (
-            <ScrollReveal key={label} delay={index * 80}>
-              <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined} className="flex items-center gap-5 border-2 border-neutral-950 bg-white p-5 transition hover:bg-neutral-950 hover:text-white">
+          {contacts.map(({ label, value, href, icon: Icon }, index) => {
+            const content = (
+              <>
                 <span className="grid size-12 shrink-0 place-items-center border border-current">
                   <Icon className="size-5" />
                 </span>
                 <span>
-                  <span className="block text-sm font-semibold text-neutral-500">{label}</span>
-                  <span className="mt-1 block break-all text-base font-bold">{value}</span>
+                  <span className={href ? "block text-sm font-semibold text-neutral-500 transition-colors group-hover:text-neutral-300" : "block text-sm font-semibold text-neutral-500"}>
+                    {label}
+                  </span>
+                  <span className="mt-1 block break-words text-base font-bold">{value}</span>
                 </span>
-              </a>
-            </ScrollReveal>
-          ))}
+              </>
+            );
+
+            return (
+              <ScrollReveal key={label} delay={index * 80}>
+                {href ? (
+                  <a
+                    href={href}
+                    target={href.startsWith("http") ? "_blank" : undefined}
+                    rel={href.startsWith("http") ? "noreferrer" : undefined}
+                    className={`group ${contactSurfaceClassName} transition duration-200 hover:bg-neutral-950 hover:text-white`}
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <div className={contactSurfaceClassName}>{content}</div>
+                )}
+              </ScrollReveal>
+            );
+          })}
         </div>
       </div>
     </section>

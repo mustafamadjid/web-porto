@@ -42,6 +42,8 @@ export const navItems = [
   { label: "Home", href: "/#home" },
   { label: "Projects", href: "/#projects" },
   { label: "Experience", href: "/#experience" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Education", href: "/#education" },
   { label: "About", href: "/#about" },
   { label: "Contact", href: "/#contact" },
 ];
@@ -112,12 +114,14 @@ export type Experience = {
   period: string;
   context: string;
   keyContributions: string[];
+  category: "engineering" | "supporting";
   relatedProject?: string;
 };
 
 export const experiences: Experience[] = [
   {
     position: "Fullstack Engineer Intern",
+    category: "engineering",
     organization: "HISSA Syariah Saham Indonesia",
     period: "Jun 2026 – Sep 2026",
     context:
@@ -131,6 +135,7 @@ export const experiences: Experience[] = [
   },
   {
     position: "Backend Developer Intern",
+    category: "engineering",
     organization: "Public Relations Office of ITERA",
     period: "Jul 2025 – Aug 2025",
     context:
@@ -144,6 +149,7 @@ export const experiences: Experience[] = [
   },
   {
     position: "Database Practicum Assistant",
+    category: "supporting",
     organization: "Institut Teknologi Sumatera",
     period: "Feb 2026",
     context: "Supported 60+ students in database course practicum sessions.",
@@ -154,6 +160,7 @@ export const experiences: Experience[] = [
   },
   {
     position: "Lecturer Assistant — Selected Topics",
+    category: "supporting",
     organization: "Institut Teknologi Sumatera",
     period: "Sep 2025 – Nov 2025",
     context: "Supported a selected informatics topics course for undergraduate students.",
@@ -164,6 +171,7 @@ export const experiences: Experience[] = [
   },
   {
     position: "Course Assistant (Intro to CS & Software)",
+    category: "supporting",
     organization: "Institut Teknologi Sumatera",
     period: "Feb 2024 – May 2024",
     context: "Supported first-year students in programming fundamentals coursework.",
@@ -174,6 +182,7 @@ export const experiences: Experience[] = [
   },
   {
     position: "Education Mentor & PR Staff",
+    category: "supporting",
     organization: "HMIF Mengabdi",
     period: "Nov 2024",
     context:
@@ -206,6 +215,7 @@ export type Project = {
   features: string[];
   results: string[];
   featured?: boolean;
+  featuredOrder?: number;
   decisions?: {
     decision: string;
     reason: string;
@@ -292,6 +302,7 @@ export const projects: Project[] = [
       "Delivered a complete final project with separated backend, frontend, and database layers.",
     ],
     featured: true,
+    featuredOrder: 2,
     decisions: [
       { decision: "Use Go for backend API.", reason: "Go concurrency model supports concurrent exam sessions and predictable latency.", tradeOff: "Go ecosystem is smaller than Node.js for complex frontend tasks." },
       { decision: "Use PostgreSQL.", reason: "Exam data is strongly relational and needs transactional consistency.", tradeOff: "Structured migrations add setup overhead and schema changes require planning." },
@@ -372,6 +383,7 @@ export const projects: Project[] = [
       "Gained practical experience working with real stakeholder requirements in an institutional context.",
     ],
     featured: true,
+    featuredOrder: 4,
     decisions: [
       { decision: "Replace WordPress with Laravel.", reason: "WordPress site was unmaintained and broken; Laravel supports structured relational backend and institutional workflows.", tradeOff: "Longer setup than customizing a theme, but easier to maintain over time." },
       { decision: "Use MySQL for the relational database.", reason: "Institutional records fit a relational model and MySQL is widely supported on the target VPS.", tradeOff: "Less native JSON support than PostgreSQL for future dynamic content." },
@@ -439,6 +451,7 @@ export const projects: Project[] = [
       "Gained practical leadership and project management experience with an 8-person team.",
     ],
     featured: true,
+    featuredOrder: 5,
     decisions: [
       { decision: "Use Express.js for backend.", reason: "Team had JavaScript experience, Express.js is lightweight and fast to prototype.", tradeOff: "Less structured than Laravel or Go for module boundaries and middleware composition." },
       { decision: "Use MySQL for structured reporting data.", reason: "Reporting entities (location, waste type) fit a relational model and MySQL was available on shared hosting.", tradeOff: "Shared hosting limits index and query tuning, which can add latency at scale." },
@@ -516,6 +529,7 @@ export const projects: Project[] = [
       "Added automated coverage with Pest, Vitest, Vue Test Utils, and TypeScript type checking.",
     ],
     featured: true,
+    featuredOrder: 6,
     testing: {
       scenario:
         "Automated API, frontend component, data-mapping, and TypeScript validation checks for analytics workflows.",
@@ -592,6 +606,7 @@ export const projects: Project[] = [
       "Kept client-facing identifiers separate from internal relational database IDs.",
     ],
     featured: true,
+    featuredOrder: 3,
     decisions: [
       { decision: "Use Laravel for fullstack delivery.", reason: "Laravel provides built-in authentication, ORM, and templating for fast end-to-end feature delivery by a single developer.", tradeOff: "Monolithic architecture is harder to split later than a Go or Node.js API." },
       { decision: "Use Google OAuth for user authentication.", reason: "HISSA investors expect a secure and low-friction login experience.", tradeOff: "OAuth adds external dependency on Google\u0027s service availability." },
@@ -681,6 +696,7 @@ export const projects: Project[] = [
       "Established machine-readable JSON Schema and OpenAPI contracts for cross-service integration.",
     ],
     featured: true,
+    featuredOrder: 1,
     links: [
       { label: "GitHub", href: "https://github.com/mustafamadjid/financial-data-engine" },
     ],

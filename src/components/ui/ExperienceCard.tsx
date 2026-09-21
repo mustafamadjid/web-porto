@@ -11,13 +11,18 @@ const ExperienceCard = ({
   period,
   context,
   keyContributions,
+  category,
   index,
   total,
 }: ExperienceCardProps) => {
   const isEven = index % 2 === 0;
+  const isEngineering = category === "engineering";
   const alignmentClass = isEven ? "lg:justify-start" : "lg:justify-end";
   const cardSideClass = isEven ? "lg:mr-auto" : "lg:ml-auto";
   const timelineNumber = total - index;
+  const cardToneClass = isEngineering
+    ? "border-neutral-950 bg-white shadow-offset-light"
+    : "border-neutral-700 bg-neutral-100 shadow-none";
 
   return (
     <div className={`relative flex ${alignmentClass}`}>
@@ -25,14 +30,19 @@ const ExperienceCard = ({
         {String(timelineNumber).padStart(2, "0")}
       </div>
       <article
-        className={`ml-8 border-2 border-neutral-950 bg-white p-6 text-neutral-950 shadow-[10px_10px_0_#d4d4d4] transition hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[14px_14px_0_#d4d4d4] lg:ml-0 lg:w-[calc(50%-2.75rem)] ${cardSideClass}`}
+        className={`ml-8 border-2 p-6 text-neutral-950 lg:ml-0 lg:w-[calc(50%-2.75rem)] ${cardToneClass} ${cardSideClass}`}
       >
-        <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+        <p
+          className={`mb-5 inline-flex px-3 py-1 text-xs font-extrabold uppercase tracking-wide ${isEngineering ? "bg-neutral-950 text-white" : "border border-neutral-400 text-neutral-600"}`}
+        >
+          {isEngineering ? "Engineering delivery" : "Supporting experience"}
+        </p>
+        <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
           <div>
             <h3 className="text-xl font-bold">{position}</h3>
             <p className="mt-1 text-sm font-semibold text-neutral-600">{organization}</p>
           </div>
-          <p className="text-sm font-extrabold text-neutral-700 md:text-right">
+          <p className="text-sm font-extrabold text-neutral-700 lg:text-right">
             {period}
           </p>
         </div>

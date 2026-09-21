@@ -18,10 +18,10 @@ const Home = () => {
   return (
     <div className="parallax-page min-h-screen text-neutral-950">
       <Navbar />
-      <main id="main">
+      <main id="main" tabIndex={-1}>
         <HeroSection />
-        <AboutSection />
         <ProjectsSection />
+        <AboutSection />
         <ExperienceSection />
         <SkillsSection />
         <EducationSection />

@@ -1,4 +1,4 @@
-import heroPhoto from "../../assets/images/Pas foto Non Bg.png";
+import heroPhoto from "../../assets/images/hero-portrait.png";
 import { personalInfo, trustIndicators } from "../../data/portfolio-data";
 import { DownloadIcon, ExternalLinkIcon } from "../ui/Icons";
 import Parallax from "../ui/Parallax";
@@ -37,33 +37,7 @@ const HeroSection = () => {
             {personalInfo.heroProof}
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="/#projects"
-              className="inline-flex items-center gap-2 bg-neutral-950 px-6 py-4 font-bold text-white transition hover:bg-neutral-700"
-            >
-              View Selected Projects
-            </a>
-            <a
-              href={personalInfo.resumeUrl}
-              download
-              className="inline-flex items-center justify-center gap-2 border-2 border-neutral-950 bg-white px-6 py-4 font-bold text-neutral-950 transition hover:bg-neutral-950 hover:text-white"
-            >
-              Download Resume
-              <DownloadIcon className="size-5" />
-            </a>
-            <a
-              href={personalInfo.githubUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 border-2 border-neutral-950 bg-white px-6 py-4 font-bold text-neutral-950 transition hover:bg-neutral-950 hover:text-white"
-            >
-              View GitHub
-              <ExternalLinkIcon className="size-5" />
-            </a>
-          </div>
-
-          <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
+          <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
             {trustIndicators.map((item) => (
               <div key={item.label} className="flex items-center gap-2">
                 <span className="bg-neutral-950 px-2 py-1 text-xs font-extrabold text-white">
@@ -75,13 +49,42 @@ const HeroSection = () => {
               </div>
             ))}
           </div>
+
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <a
+              href="/#projects"
+              className="motion-safe:active:translate-y-px inline-flex items-center gap-2 bg-neutral-950 px-6 py-4 font-bold text-white transition duration-200 hover:bg-neutral-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-neutral-950 focus-visible:ring-offset-4"
+            >
+              View Selected Projects
+            </a>
+            <a
+              href={personalInfo.resumeUrl}
+              download
+              className="inline-flex items-center gap-2 text-sm font-extrabold text-neutral-950 underline decoration-2 underline-offset-4 transition duration-200 hover:text-neutral-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-neutral-950 focus-visible:ring-offset-4"
+            >
+              Download Resume
+              <DownloadIcon className="size-4" />
+            </a>
+            <a
+              href={personalInfo.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-extrabold text-neutral-950 underline decoration-2 underline-offset-4 transition duration-200 hover:text-neutral-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-neutral-950 focus-visible:ring-offset-4"
+            >
+              View GitHub
+              <ExternalLinkIcon className="size-4" />
+            </a>
+          </div>
         </ScrollReveal>
         <div className="relative">
           <Parallax speed={0.18} maxOffset={130}>
             <img
               src={heroPhoto}
               alt="Athaullah Mustafa Madjid portrait"
-              className="mx-auto w-full max-w-xl rounded-[150px] drop-shadow-[18px_18px_0_#000000]"
+              width={1200}
+              height={1155}
+              decoding="async"
+              className="mx-auto aspect-[1200/1155] w-full max-w-xl rounded-[150px] object-contain drop-shadow-[18px_18px_0_#000000]"
               fetchPriority="high"
             />
           </Parallax>

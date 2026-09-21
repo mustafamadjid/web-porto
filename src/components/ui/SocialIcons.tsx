@@ -17,7 +17,7 @@ const SocialIcons = () => {
           key={label}
           href={href}
           aria-label={label}
-          className="group grid size-11 place-items-center border border-neutral-950 bg-white text-neutral-950 transition hover:bg-neutral-950 hover:text-white focus:outline-none focus:ring-2 focus:ring-neutral-950 focus:ring-offset-2"
+          className="motion-safe:active:translate-y-px group grid size-11 place-items-center border border-neutral-950 bg-white text-neutral-950 transition duration-200 hover:bg-neutral-950 hover:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
         >
           {iconSrc ? (
             <img src={iconSrc} alt="" className="size-5 transition group-hover:invert" aria-hidden="true" />

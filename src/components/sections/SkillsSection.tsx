@@ -34,7 +34,7 @@ const SkillsSection = () => {
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {skillCategories.map((category, index) => (
             <ScrollReveal key={category.title} delay={index * 90}>
-              <div className="h-full border-2 border-neutral-950 bg-white p-6 shadow-[10px_10px_0_#111111]">
+              <div className="h-full border-2 border-neutral-950 bg-white p-6 shadow-offset-md">
                 <h3 className="text-sm font-extrabold uppercase tracking-wider text-neutral-500">
                   {category.title}
                 </h3>

@@ -18,7 +18,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-neutral-300">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="hover:text-white">
+            <a key={item.href} href={item.href} className="transition-colors duration-200 hover:text-white">
               {item.label}
             </a>
           ))}

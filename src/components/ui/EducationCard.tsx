@@ -8,7 +8,7 @@ type EducationCardProps = {
 
 const EducationCard = ({ school, degree, period, detail, index }: EducationCardProps) => {
   return (
-    <article className="group relative border-2 border-neutral-950 bg-white p-6 shadow-[8px_8px_0_#111111] transition hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[12px_12px_0_#111111]">
+    <article className="relative border-2 border-neutral-950 bg-white p-6 shadow-offset-sm">
       <div className="absolute -left-[3.2rem] top-7 hidden size-10 place-items-center border-2 border-neutral-950 bg-white text-sm font-extrabold text-neutral-950 md:grid">
         {String(index + 1).padStart(2, "0")}
       </div>

@@ -13,8 +13,11 @@ const AboutSection = () => {
           <img
             src={aboutIllustration}
             alt="Backend development workspace"
+            width={720}
+            height={972}
             className="relative w-full"
             loading="lazy"
+            decoding="async"
           />
         </Parallax>
         <ScrollReveal delay={120}>

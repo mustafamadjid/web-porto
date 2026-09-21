@@ -5,6 +5,8 @@ import { ArrowRightIcon } from "./Icons";
 type ProjectCardProps = {
   slug: string;
   name: string;
+  period: string;
+  type: string;
   problem: string;
   role: string;
   result: string;
@@ -13,15 +15,30 @@ type ProjectCardProps = {
     src: string;
     alt: string;
   }[];
+  links?: {
+    label: string;
+    href: string;
+  }[];
 };
 
-const ProjectCard = ({ slug, name, problem, role, result, stack, images }: ProjectCardProps) => {
+const ProjectCard = ({
+  slug,
+  name,
+  period,
+  type,
+  problem,
+  role,
+  result,
+  stack,
+  images,
+  links,
+}: ProjectCardProps) => {
   const thumbnail = images[0];
 
   return (
     <Link
       to={`/projects/${slug}`}
-      className="group flex h-full flex-col border-2 border-neutral-950 bg-white p-6 text-left transition duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[12px_12px_0_#111111] focus:outline-none focus-visible:ring-4 focus-visible:ring-neutral-950/20"
+      className="motion-safe:active:translate-y-px group flex h-full flex-col border-2 border-neutral-950 bg-white p-6 text-left transition duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-offset-lg focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-neutral-950 focus-visible:ring-offset-4"
       aria-label={`View ${name} case study`}
     >
       {thumbnail ? (
@@ -31,11 +48,16 @@ const ProjectCard = ({ slug, name, problem, role, result, stack, images }: Proje
             alt={thumbnail.alt}
             className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
             loading="lazy"
+            decoding="async"
           />
         </div>
       ) : null}
 
       <h3 className="text-xl font-extrabold text-neutral-950">{name}</h3>
+
+      <p className="mt-2 text-xs font-extrabold uppercase tracking-wide text-neutral-500">
+        {type} · {period}
+      </p>
 
       <p className="mt-4 text-sm leading-7 text-neutral-600">{problem}</p>
 
@@ -57,7 +79,14 @@ const ProjectCard = ({ slug, name, problem, role, result, stack, images }: Proje
         ))}
       </div>
 
-      <p className="mt-4 flex-1 text-sm leading-7 text-neutral-600">{result}</p>
+      <div className="mt-5 flex-1 border-t border-neutral-200 pt-4">
+        <p className="text-xs font-extrabold uppercase tracking-wide text-neutral-500">Outcome</p>
+        <p className="mt-2 text-sm leading-7 text-neutral-600">{result}</p>
+      </div>
+
+      <p className="mt-4 text-xs font-bold text-neutral-500">
+        {links?.length ? `${links.map((link) => link.label).join(" · ")} available` : "No public link listed"}
+      </p>
 
       <span className="mt-5 inline-flex items-center gap-2 text-sm font-extrabold text-neutral-950">
         Read Case Study

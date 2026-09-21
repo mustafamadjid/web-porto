@@ -23,7 +23,7 @@ const EducationSection = () => {
                 Academic foundation in informatics engineering, strengthened through assistantship roles, database practicums, and project-based software development.
               </p>
               <Parallax speed={0.08} maxOffset={55}>
-                <div className="mt-8 bg-neutral-950 p-6 text-white shadow-[10px_10px_0_#d4d4d4]">
+                <div className="mt-8 bg-neutral-950 p-6 text-white shadow-offset-light">
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-neutral-400">Current Focus</p>
                   <p className="mt-4 text-2xl font-extrabold leading-tight">Backend systems, relational databases, and full-stack delivery.</p>
                 </div>

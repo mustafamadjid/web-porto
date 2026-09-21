@@ -20,6 +20,11 @@ const ScrollReveal = ({ children, className = "", delay = 0 }: ScrollRevealProps
       return;
     }
 
+    if (!("IntersectionObserver" in window)) {
+      element.classList.add("is-visible");
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return;
